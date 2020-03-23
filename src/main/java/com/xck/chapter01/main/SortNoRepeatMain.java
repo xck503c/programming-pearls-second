@@ -4,7 +4,7 @@ import com.xck.chapter01.sortNoRepeatNum.SortNoRepeatNum;
 
 public class SortNoRepeatMain {
     public static void main(String[] args) {
-        test2();
+        test3();
     }
 
     public static void test1(){
@@ -13,15 +13,39 @@ public class SortNoRepeatMain {
     }
 
     public static void test2(){
-        int min = 0;
-        int max = 4194000;
+        int bw = 100*10000;
+        int min = bw;
+        int max = min+4194000;
+        int diff = max-min;
         while (true) {
             try {
-                for (int i=0;i<3;i++) {
-                    SortNoRepeatNum.readIntToVectorInRange(max-min, min, max
-                            , "D:\\no_repeat_num.txt", "D:\\sort_num.txt");
+                for (int i=0;i<bw/diff+1;i++) {
+                    SortNoRepeatNum.readIntToVectorInRange(diff, min, max
+                            , "/Users/xck/workDir/no_repeat_num.txt"
+                            , "/Users/xck/workDir/sort_num.txt");
                     min=max+1;
-                    max=min+4194000;
+                    max=min+diff;
+                }
+            } catch (OutOfMemoryError e) {
+                e.printStackTrace();
+                max-=8;
+            }
+        }
+    }
+
+    public static void test3(){
+        int bw = 100*10000;
+        int diff = 131067;
+        int min = bw;
+        int max = bw+diff;
+        while (true) {
+            try {
+                for (int i=0;i<bw/diff+1;i++) {
+                    SortNoRepeatNum.readIntToArrayInRange(diff, min, max
+                            , "/Users/xck/workDir/no_repeat_num.txt"
+                            , "/Users/xck/workDir/sort_num.txt");
+                    min=max+1;
+                    max=min+diff-1;
                 }
             } catch (OutOfMemoryError e) {
                 e.printStackTrace();

@@ -6,7 +6,7 @@ import com.xck.chapter01.generateNoRepeat.GenNoRepeatByRandomNum;
 public class GeneratorNoRepeatMain {
 
     public static void main(String[] args) {
-
+        test3();
     }
 
     public static void test1(){
@@ -25,6 +25,6 @@ public class GeneratorNoRepeatMain {
     public static void test3(){
         int bw = 100*10000;
         //生成1千万个数字，每个数字都是大于>1百万的整数
-        GenNoRepeatByRandomIndex.writeRandomNumAndNoRepeateInRandomIndex_array(bw, bw, bw*10-1, "D:\\no_repeat_num.txt");
+        GenNoRepeatByRandomIndex.writeRandomNumAndNoRepeateInRandomIndex_array(bw, bw, bw*10-1, "/Users/xck/workDir/no_repeat_num.txt");
     }
 }
