@@ -100,6 +100,7 @@ public class SortNoRepeatNum {
         FileReader fr = null;
         BufferedReader br = null;
         BitVector bitVector = new BitVector(numSize);
+        System.out.println("最大位数: " + numSize);
         try {
             srcFile = new File(srcPathName);
             if(srcFile.exists()){
@@ -149,7 +150,8 @@ public class SortNoRepeatNum {
             Iterator<Integer> it = bitVector.iterator();
             int count = 0;
             while (it.hasNext()){
-                bw.write(it.next()+"\r\n");
+//                bw.write((minBound+it.next())+"\r\n");
+                System.out.println((minBound+it.next()));
                 count++;
             }
             System.out.println("写入总数: " + count);
